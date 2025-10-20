@@ -1,4 +1,4 @@
-import { IsString, IsNotEmpty } from 'class-validator';
+import { IsString, IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreatePostDto {
     @IsString()
@@ -10,8 +10,14 @@ export class CreatePostDto {
     slug: string;
 
     @IsString()
+    @IsNotEmpty()
     content: string;
 
     @IsString()
+    @IsNotEmpty()
     author: string;
+
+    @IsString()
+    @IsOptional()
+    coverImage?: string;
 }
